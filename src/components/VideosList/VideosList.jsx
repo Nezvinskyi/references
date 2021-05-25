@@ -1,18 +1,19 @@
 import { useState } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import AddBtn from '../AddBtn/';
+import AppBar from '../AppBar/AppBar';
 import Modal from '../Modal/';
 
 import Table from './Table';
 import './VideosList.scss';
 
-const VideosList = ({ videos }) => {
-  const [isOpen, setOpenModal] = useState(false);
-  const [admin, setAdmin] = useState(false);
+const VideosList = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [admin, setAdmin] = useState(true);
 
   const toggleModal = e => {
     if (e.target === e.currentTarget) {
-      setOpenModal(prev => !prev);
+      setIsOpen(prev => !prev);
     }
   };
 
@@ -22,15 +23,12 @@ const VideosList = ({ videos }) => {
 
   return (
     <div className="videos-list-container">
-      <div className="videos-list">
-        <h2>Video List</h2>
+      <AppBar>
         <AddBtn title="Add" onClick={toggleModal} />
         <AddBtn title="Edit List" onClick={toggleAdmin} />
-        {/* <ul>
-          {videos.map(video => (
-            <VideoItem key={video.id} video={video} />
-          ))}
-        </ul> */}
+      </AppBar>
+      <div className="videos-list">
+        <h2>Video List</h2>
         <Table adminMode={admin} />
       </div>
       {isOpen && <Modal onClose={toggleModal} />}
@@ -38,8 +36,4 @@ const VideosList = ({ videos }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  videos: state.videos.videos,
-});
-
-export default connect(mapStateToProps)(VideosList);
+export default VideosList;

@@ -3,46 +3,56 @@
     {
       "id": "A6wgMK-NP",
       "date": "2021-03-23",
-      "author": "Андрей",
+      "author": "Андрей Кириленко",
       "description": "Разбор дз13, обработка ошибок в Fetch, axios",
       "link": "https://youtu.be/VSv42sSlNTw",
+      "subjectId": 1.1,
+      "subject": "Доп занятие",
       "watched": true,
       "authorId": 1
     },
     {
       "id": "NI0pFP-sG",
       "date": "2021-03-20",
-      "author": "Андрей",
+      "author": "Андрей Кириленко",
       "description": "git, promises, подключение sass (webpack), замыкания",
       "link": "https://youtu.be/vxRP3toqIsY",
       "watched": true,
-      "authorId": 1
+      "authorId": 1,
+      "subjectId": 1.1,
+      "subject": "Доп занятие"
     },
     {
       "id": "98D7F37Ey",
       "date": "2021-03-06",
-      "author": "Андрей",
+      "author": "Андрей Кириленко",
       "description": "axios, 5 часовой вебинар (корзина интернет-магазина)",
       "link": "https://www.youtube.com/watch?v=1QG_FSvDgUo",
       "watched": true,
+      "subjectId": 1.1,
+      "subject": "Доп занятие",
       "authorId": 1
     },
     {
       "id": "uheaCvyDl",
       "date": "2021-02-20",
-      "author": "Андрей",
+      "author": "Андрей Кириленко",
       "description": "Замыкания, задача prev.add(1).add(2).result(); // 3",
       "link": "https://youtu.be/Sai4a9XuEuY",
       "watched": true,
+      "subjectId": 1.1,
+      "subject": "Доп занятие",
       "authorId": 1
     },
     {
       "id": "DtNJy2p8I",
       "date": "2021-02-06",
-      "author": "Андрей",
+      "author": "Андрей Кириленко",
       "description": "пагинация",
       "link": "https://youtu.be/nE93l1eE3RI",
       "watched": true,
+      "subjectId": 1.1,
+      "subject": "Доп занятие",
       "authorId": 1
     },
     {
@@ -176,6 +186,17 @@
       "subject": "Занятие 1",
       "subjectId": 1,
       "watched": true
+    },
+    {
+      "id": "U1A7rkG-P",
+      "author": "Гери",
+      "link": "https://www.youtube.com/watch?v=NilKla3Ripo",
+      "date": "2021-04-26",
+      "description": "Асинхронный Redux",
+      "authorId": 2,
+      "subject": "Занятие 11",
+      "subjectId": 11,
+      "watched": false
     }
   ],
   "authors": [
@@ -240,6 +261,10 @@
     {
       "id": 11,
       "subject": "Занятие 11"
+    },
+    {
+      "id": 1.1,
+      "subject": "Доп занятие"
     }
   ]
 }
