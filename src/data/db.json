@@ -196,6 +196,28 @@
       "authorId": 2,
       "subject": "Занятие 11",
       "subjectId": 11,
+      "watched": true
+    },
+    {
+      "id": "D1g4YFIeE",
+      "author": "Саша Веник",
+      "link": "https://youtu.be/M9omcDOJ1vU",
+      "date": "2021-05-26",
+      "description": "Q&A ",
+      "authorId": 3,
+      "subject": "Доп занятие",
+      "subjectId": 1.1,
+      "watched": false
+    },
+    {
+      "id": "I3nxsZEhQ",
+      "author": "Саша Веник",
+      "link": "https://youtu.be/Mt0YP4OMT1I",
+      "date": "2021-05-21",
+      "description": "Селекторы и библиотека Reselect ",
+      "authorId": 3,
+      "subject": "Занятие 12",
+      "subjectId": 12,
       "watched": false
     }
   ],
@@ -261,6 +283,10 @@
     {
       "id": 11,
       "subject": "Занятие 11"
+    },
+    {
+      "id": 12,
+      "subject": "Занятие 12"
     },
     {
       "id": 1.1,
