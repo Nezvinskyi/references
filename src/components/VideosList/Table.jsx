@@ -1,23 +1,32 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { connect } from 'react-redux';
-import { toggleCompleted, deleteVideo } from '../../services/api';
-import selectors from '../../redux/videos-selectors';
-import { useState } from 'react';
+import { videosSelectors } from '../../redux/videos/';
+import { authSelectors } from '../../redux/auth';
+import { useEffect } from 'react';
+import { videosActions } from '../../redux/videos';
+import DeleteBtn from '../DeleteBtn/DeleteBtn';
 
-const Table = ({ videos, adminMode }) => {
-  const [sortDirection, setSortDirection] = useState(-1);
-  const [sortBy, setSortBy] = useState('Date');
+const Table = ({
+  videos,
+  isAuthenticated,
+  getVideos,
+  handleDelete,
+  handleToggleCompleted,
+}) => {
+  // const [sortDirection, setSortDirection] = useState(-1);
+  // const [sortBy, setSortBy] = useState('Date');
+
+  useEffect(() => {
+    getVideos();
+  }, []);
+
   const handleClick = e => {
-    setSortBy(e.target.textContent.toLowerCase());
-    setSortDirection(prev => -prev);
-
-    videos.sort((a, b) => {
-      if (a[sortBy] > b[sortBy]) return sortDirection;
-      if (a[sortBy] < b[sortBy]) return -sortDirection;
-    });
-  };
-
-  const onDelete = id => {
-    deleteVideo(id);
+    // setSortBy(e.target.textContent.toLowerCase());
+    // setSortDirection(prev => -prev);
+    // videos.sort((a, b) => {
+    //   if (a[sortBy] > b[sortBy]) return sortDirection;
+    //   if (a[sortBy] < b[sortBy]) return -sortDirection;
+    // });
   };
 
   // const sortByProperty = () => {
@@ -28,11 +37,7 @@ const Table = ({ videos, adminMode }) => {
   // };
 
   return (
-    <table>
-      <caption>
-        {/* TODO sort by click */}
-        {/* JS: List of videos and webinars (click on column header to sort) */}
-      </caption>
+    <table className="table table-striped table-hover">
       <thead>
         <tr>
           <th onClick={handleClick}>Date</th>
@@ -40,14 +45,15 @@ const Table = ({ videos, adminMode }) => {
           <th onClick={handleClick}>Author</th>
           <th onClick={handleClick}>Description</th>
           <th onClick={handleClick}>Link</th>
-          {adminMode && <th>Admin</th>}
+          <th>Watched</th>
+          <th>Admin</th>
         </tr>
       </thead>
       <tbody>
         {videos.map(
           ({ id, date, author, description, link, subject, watched }, idx) => {
             return (
-              <tr key={id}>
+              <tr key={id} className="align-middle">
                 <td>{date}</td>
                 <td>{subject}</td>
                 <td>{author}</td>
@@ -55,18 +61,24 @@ const Table = ({ videos, adminMode }) => {
                 <td>
                   <a href={link}>Link</a>
                 </td>
-                {adminMode && (
-                  <td>
-                    <input
-                      type="checkbox"
-                      name=""
-                      id=""
-                      checked={watched}
-                      onChange={() => toggleCompleted(id, !watched)}
-                    />
-                    <button onClick={() => onDelete(id)}>x</button>
-                  </td>
-                )}
+                <td style={{ textAlign: 'center' }}>
+                  <input
+                    type="checkbox"
+                    name=""
+                    id=""
+                    checked={watched}
+                    onChange={() =>
+                      handleToggleCompleted({ id, watched: !watched })
+                    }
+                  />
+                </td>
+                <td>
+                  <DeleteBtn
+                    id={id}
+                    onDelete={handleDelete}
+                    disabled={isAuthenticated ? false : true}
+                  />
+                </td>
               </tr>
             );
           },
@@ -77,7 +89,14 @@ const Table = ({ videos, adminMode }) => {
 };
 
 const mapStateToProps = state => ({
-  videos: selectors.getFilteredVideos(state),
+  videos: videosSelectors.getFilteredVideos(state),
+  isAuthenticated: authSelectors.getIsAuthenticated(state),
 });
 
-export default connect(mapStateToProps)(Table);
+const mapDispathToProps = dispatch => ({
+  getVideos: () => dispatch(videosActions.fetchVideos()),
+  handleDelete: id => dispatch(videosActions.deleteVideo(id)),
+  handleToggleCompleted: args => dispatch(videosActions.toggleCompleted(args)),
+});
+
+export default connect(mapStateToProps, mapDispathToProps)(Table);

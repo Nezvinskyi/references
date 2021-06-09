@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core';
 import './Modal.scss';
 import moment from 'moment';
-import shortid from 'shortid';
+// import shortid from 'shortid';
 
-import { addVideo } from '../../services/api';
+import { addVideo } from '../../services/videos-api';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -55,7 +55,6 @@ const ModalWindow = ({ authors, subjects, onClose }) => {
     });
 
     const newVideo = {
-      id: shortid.generate(),
       author,
       link,
       date,
@@ -140,7 +139,6 @@ const ModalWindow = ({ authors, subjects, onClose }) => {
                       type="date"
                       value={date}
                       onChange={e => {
-                        console.log(e.target.value);
                         setDate(e.target.value);
                       }}
                     />

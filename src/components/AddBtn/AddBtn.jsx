@@ -1,28 +1,17 @@
-import './AddBtn.scss';
-import { makeStyles } from '@material-ui/core/styles';
-import QueuePlayNextIcon from '@material-ui/icons/QueuePlayNext';
+import { Fab } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1),
-  },
-}));
-
-const AddBtn = ({ title, onClick }) => {
-  const classes = useStyles();
-
-  return (
-    <>
-      <button onClick={onClick} className="add-btn">
-        <QueuePlayNextIcon className={classes.extendedIcon} /> {title}
-      </button>
-    </>
-  );
-};
+const AddBtn = ({ onClick }) => (
+  <Fab
+    onClick={onClick}
+    color="primary"
+    variant="extended"
+    aria-label="add"
+    style={{ position: 'fixed', bottom: '2em', right: '2em' }}
+  >
+    <AddIcon />
+    Add video
+  </Fab>
+);
 
 export default AddBtn;

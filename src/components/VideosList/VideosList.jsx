@@ -1,39 +1,41 @@
 import { useState } from 'react';
-// import { connect } from 'react-redux';
-import AddBtn from '../AddBtn/';
-import AppBar from '../AppBar/AppBar';
-import Modal from '../Modal/';
-
+import { connect } from 'react-redux';
+import ModalWindow from '../ModalWindow';
 import Table from './Table';
 import './VideosList.scss';
 
-const VideosList = () => {
+import { authSelectors } from '../../redux/auth';
+import AddBtn from '../AddBtn';
+import AddForm from '../AddForm/AddForm';
+import LoginForm from '../LoginForm';
+
+const VideosList = ({ isAuthenticated }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [admin, setAdmin] = useState(true);
 
-  const toggleModal = e => {
-    if (e.target === e.currentTarget) {
-      setIsOpen(prev => !prev);
-    }
-  };
-
-  const toggleAdmin = () => {
-    setAdmin(prev => !prev);
+  const toggleModal = () => {
+    setIsOpen(prev => !prev);
   };
 
   return (
-    <div className="videos-list-container">
-      <AppBar>
-        <AddBtn title="Add" onClick={toggleModal} />
-        <AddBtn title="Edit List" onClick={toggleAdmin} />
-      </AppBar>
-      <div className="videos-list">
+    <>
+      <div className="videos-list-container container">
         <h2>Video List</h2>
-        <Table adminMode={admin} />
+        <Table />
       </div>
-      {isOpen && <Modal onClose={toggleModal} />}
-    </div>
+      <ModalWindow isOpen={isOpen} title="Add new video" onClose={toggleModal}>
+        {isAuthenticated ? (
+          <AddForm onClose={toggleModal} />
+        ) : (
+          <LoginForm onClose={toggleModal} />
+        )}
+      </ModalWindow>
+      <AddBtn onClick={toggleModal} />
+    </>
   );
 };
 
-export default VideosList;
+const mapStateToProps = state => ({
+  isAuthenticated: authSelectors.getIsAuthenticated(state),
+});
+
+export default connect(mapStateToProps)(VideosList);

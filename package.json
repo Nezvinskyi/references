@@ -4,27 +4,22 @@
   "private": true,
   "homepage": "https://nezvinskyi.github.io/references/",
   "dependencies": {
-    "@date-io/date-fns": "^1.3.13",
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
-    "@material-ui/pickers": "^3.3.10",
     "@reduxjs/toolkit": "^1.5.1",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
-    "date-fns": "^2.21.3",
-    "gh-pages": "^3.2.0",
-    "json-server": "^0.16.3",
+    "bootstrap": "^5.0.1",
     "moment": "^2.29.1",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
+    "react-jss": "^10.6.0",
     "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "^4.1.0",
-    "sass": "^1.32.13",
-    "shortid": "^2.2.16",
-    "web-vitals": "^1.1.2"
+    "redux-persist": "^6.0.0",
+    "sass": "^1.32.13"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,7 +28,7 @@
     "eject": "react-scripts eject",
     "server": "json-server --watch src/data/db.json --port 5005",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [
@@ -52,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.9"
   }
 }

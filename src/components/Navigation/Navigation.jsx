@@ -1,18 +1,23 @@
-import { useRef } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../redux/videos/filter-reducer';
+import { videosSelectors } from '../../redux/videos';
+
 import './Navigation.scss';
 
-const Navigation = ({ subjects, authors, toggleSubject, toggleAuthor }) => {
-  const subjectsListRef = useRef();
-  const authorsListRef = useRef();
-  const handleNavSubjectsClick = e => {
-    e.currentTarget.classList.toggle('nav-link_active');
-    subjectsListRef.current.classList.toggle('hidden');
-  };
-  const handleNavAuthorsClick = e => {
-    e.currentTarget.classList.toggle('nav-link_active');
-    authorsListRef.current.classList.toggle('hidden');
-  };
+// import videos from '../../data/db.json';
+// const subjects = videos.subjects;
+// const subjects = videos.authors;
 
+const Navigation = ({ subjects, authors, toggleSubject, toggleAuthor }) => {
+  const toggleCollapse = e => {
+    e.target.classList.toggle('collapsed');
+    e.target.setAttribute(
+      'aria-expanded',
+      e.target.getAttribute('aria-expanded') === 'false' ? 'true' : 'false',
+    );
+
+    e.target.parentNode.nextSibling.classList.toggle('show');
+  };
   const handleSubjectClick = e => {
     toggleSubject(e.target.textContent);
     e.target.classList.toggle('active');
@@ -21,51 +26,81 @@ const Navigation = ({ subjects, authors, toggleSubject, toggleAuthor }) => {
     toggleAuthor(e.target.textContent);
     e.target.classList.toggle('active');
   };
+
   return (
-    <div className="nav-container">
-      <div className="container">
-        <h2>Navigation</h2>
-        <ul>
-          <li>
+    <div className="nav-container container-fluid">
+      <h2>Navigation</h2>
+      <div className="accordion" id="accordionExample">
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="headingSubjects">
             <button
+              className="accordion-button"
               type="button"
-              className="nav-link"
-              onClick={handleNavSubjectsClick}
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseSubjects"
+              aria-expanded="true"
+              aria-controls="collapseSubjects"
+              onClick={toggleCollapse}
             >
-              <div className="">
-                <span className="nav-item__title">Занятия</span>
-              </div>
+              Subjects/Modules
             </button>
-            <ul ref={subjectsListRef}>
-              {subjects.map(({ id, subject }) => (
-                <li key={id} onClick={handleSubjectClick}>
-                  {subject}
-                </li>
-              ))}
-            </ul>
-          </li>
-          <li>
+          </h2>
+          <div
+            id="collapseSubjects"
+            className="accordion-collapse collapse show"
+            aria-labelledby="headingSubjects"
+            data-bs-parent="#accordionExample"
+          >
+            <div className="accordion-body">
+              <ul>
+                {subjects.map(subject => (
+                  <li key={subject} onClick={handleSubjectClick}>
+                    {subject}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="headingAuthors">
             <button
+              onClick={toggleCollapse}
+              className="accordion-button"
               type="button"
-              className="nav-link"
-              onClick={handleNavAuthorsClick}
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseAuthors"
+              aria-expanded="true"
+              aria-controls="collapseAuthors"
             >
-              <div className="">
-                <span className="nav-item__title">Авторы</span>
-              </div>
+              Authors/Speakers
             </button>
-            <ul ref={authorsListRef}>
-              {authors.map(({ id, name }) => (
-                <li key={id} onClick={handleAuthorClick}>
-                  {name}
-                </li>
-              ))}
-            </ul>
-          </li>
-        </ul>
+          </h2>
+          <div
+            id="collapseAuthors"
+            className="accordion-collapse collapse show"
+            aria-labelledby="headingAuthors"
+            data-bs-parent="#accordionExample"
+          >
+            <div className="accordion-body">
+              <ul>
+                {authors.map(author => (
+                  <li key={author} onClick={handleAuthorClick}>
+                    {author}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Navigation;
+const mapStateToProps = state => ({
+  subjects: videosSelectors.getSubjects(state),
+  authors: videosSelectors.getAuthors(state),
+});
+
+export default connect(mapStateToProps, actions)(Navigation);
