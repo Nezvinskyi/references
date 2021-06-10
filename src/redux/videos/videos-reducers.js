@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { createTheming } from 'theming';
 import * as api from '../../services/videos-api';
 
 const initialState = { videos: [], loading: false, error: null };

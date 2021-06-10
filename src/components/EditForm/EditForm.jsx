@@ -119,7 +119,7 @@ const EditForm = ({
           <button
             type="submit"
             className="btn btn-secondary"
-            disabled={isAuthenticated ? 'false' : 'true'}
+            disabled={isAuthenticated ? false : true}
           >
             Confirm change
           </button>
