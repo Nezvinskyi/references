@@ -5,6 +5,9 @@ import { authSelectors } from '../../redux/auth';
 import { useEffect, useState } from 'react';
 import { videosActions } from '../../redux/videos';
 import DeleteBtn from '../DeleteBtn/DeleteBtn';
+import EditBtn from '../EditBtn/EditBtn';
+import ModalWindow from '../ModalWindow/ModalWindow';
+import EditForm from '../EditForm/EditForm';
 
 const sortArrayByProperty = (array, property, sortDirection) => {
   console.log(
@@ -28,11 +31,17 @@ const Table = ({
 }) => {
   const [sortDirection, setSortDirection] = useState(1);
   const [sortBy, setSortBy] = useState('Date');
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState({});
+
+  const toggleModal = () => {
+    setIsOpen(prev => !prev);
+  };
 
   useEffect(() => {
     getVideos();
   }, []);
-  const handleClick = e => {
+  const handleSortClick = e => {
     e.target.parentElement.childNodes.forEach(item =>
       item.classList.remove('sort', 'ascending', 'descending'),
     );
@@ -48,59 +57,86 @@ const Table = ({
   };
 
   return (
-    <table className="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th onClick={handleClick}>Date</th>
-          <th onClick={handleClick}>Subject</th>
-          <th onClick={handleClick}>Author</th>
-          <th onClick={handleClick}>Description</th>
-          <th onClick={handleClick}>Link</th>
-          <th onClick={handleClick}>Watched</th>
-          <th>Admin</th>
-        </tr>
-      </thead>
-      <tbody>
-        {sortArrayByProperty(videos, sortBy, sortDirection).map(
-          ({ id, date, author, description, link, subject, watched }, idx) => {
-            return (
-              <tr key={id} className="align-middle">
-                <td>{date}</td>
-                <td>{subject}</td>
-                <td>{author}</td>
-                <td>{description}</td>
-                <td>
-                  <a href={link}>Link</a>
-                </td>
-                <td style={{ textAlign: 'center' }}>
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    checked={watched}
-                    onChange={() =>
-                      handleToggleCompleted({ id, watched: !watched })
-                    }
-                    style={{
-                      height: 20,
-                      width: 20,
-                      cursor: 'pointer',
-                    }}
-                  />
-                </td>
-                <td>
-                  <DeleteBtn
-                    id={id}
-                    onDelete={handleDelete}
-                    disabled={isAuthenticated ? false : true}
-                  />
-                </td>
-              </tr>
-            );
-          },
-        )}
-      </tbody>
-    </table>
+    <>
+      <table className="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th onClick={handleSortClick}>Date</th>
+            <th onClick={handleSortClick}>Subject</th>
+            <th onClick={handleSortClick}>Author</th>
+            <th onClick={handleSortClick}>Description</th>
+            <th onClick={handleSortClick}>Link</th>
+            <th onClick={handleSortClick}>Watched</th>
+            <th style={{ textAlign: 'center' }}>Admin</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortArrayByProperty(videos, sortBy, sortDirection).map(
+            (
+              { id, date, author, description, link, subject, watched },
+              idx,
+            ) => {
+              return (
+                <tr key={id} className="align-middle">
+                  <td nowrap="true">{date}</td>
+                  <td>{subject}</td>
+                  <td>{author}</td>
+                  <td>{description}</td>
+                  <td>
+                    <a href={link}>Link</a>
+                  </td>
+                  <td style={{ textAlign: 'center' }}>
+                    <input
+                      type="checkbox"
+                      name=""
+                      id=""
+                      checked={watched}
+                      onChange={() =>
+                        handleToggleCompleted({ id, watched: !watched })
+                      }
+                      style={{
+                        height: 20,
+                        width: 20,
+                        cursor: 'pointer',
+                      }}
+                    />
+                  </td>
+                  <td nowrap="true" style={{ textAlign: 'center' }}>
+                    <EditBtn
+                      onEdit={() => {
+                        toggleModal();
+                        console.log('from table >>>>> ', id);
+                        setCurrentVideo({
+                          id,
+                          date,
+                          author,
+                          description,
+                          link,
+                          subject,
+                          watched,
+                        });
+                      }}
+                    />
+                    <DeleteBtn
+                      id={id}
+                      onDelete={handleDelete}
+                      disabled={isAuthenticated ? false : true}
+                    />
+                  </td>
+                </tr>
+              );
+            },
+          )}
+        </tbody>
+      </table>
+      <ModalWindow title="edit" isOpen={isOpen} onClose={toggleModal}>
+        <EditForm
+          onClose={toggleModal}
+          id={currentVideo.id}
+          video={currentVideo}
+        />
+      </ModalWindow>
+    </>
   );
 };
 

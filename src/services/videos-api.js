@@ -23,3 +23,7 @@ export const toggleCompleted = (id, payload) => {
     watched: payload,
   });
 };
+
+export const editVideo = (id, payload) => {
+  return axios.patch(`${BASE_URL}/data/videos/${id}/.json`, payload);
+};

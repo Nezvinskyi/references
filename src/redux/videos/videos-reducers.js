@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createTheming } from 'theming';
 import * as api from '../../services/videos-api';
 
 const initialState = { videos: [], loading: false, error: null };
@@ -24,7 +25,20 @@ export const addVideo = createAsyncThunk(
       const { data } = await api.addVideo(video, token);
       return { id: data.name, ...video };
     } catch (error) {
+      console.log(error.message);
       return error;
+    }
+  },
+);
+
+export const editVideo = createAsyncThunk(
+  'videos/editVideo',
+  async ({ id, formData }) => {
+    try {
+      const { data } = await api.editVideo(id, formData);
+      return { id: id, ...data };
+    } catch (error) {
+      console.log(error.message);
     }
   },
 );
@@ -97,6 +111,19 @@ export const videosSlice = createSlice({
       state.loading = false;
     },
     [toggleCompleted.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [editVideo.pending]: (state, action) => {
+      state.loading = true;
+    },
+    [editVideo.fulfilled]: (state, { payload }) => {
+      state.videos = state.videos.map(item =>
+        item.id !== payload.id ? item : payload,
+      );
+      state.loading = false;
+    },
+    [editVideo.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
