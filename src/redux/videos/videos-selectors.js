@@ -1,5 +1,3 @@
-// import { createSelector } from '@reduxjs/toolkit';
-
 const getAllVideos = state => state.videos.videos;
 
 const getFilter = state => state.filter;

@@ -1,0 +1,332 @@
+{
+  "data" : {
+    "videos" : {
+      "-MbmRdH_OUNmpCzeA6iy" : {
+        "author" : "Андрей Кириленко",
+        "date" : "2021-03-23",
+        "description" : "Разбор дз13, обработка ошибок в Fetch, axios",
+        "link" : "https://youtu.be/VSv42sSlNTw",
+        "payload" : "2020-12-31",
+        "subject" : "Доп занятие",
+        "watched" : false
+      },
+      "-MbmRkJ5E0TFyLyMXeEG" : {
+        "author" : "Андрей Кириленко",
+        "date" : "2021-03-20",
+        "description" : "git, promises, подключение sass (webpack), замыкания",
+        "link" : "https://youtu.be/vxRP3toqIsY",
+        "subject" : "Доп занятие",
+        "watched" : false
+      },
+      "-Mbmrvzjx-sTNdyfUxSY" : {
+        "author" : "Андрей Кириленко",
+        "date" : "2021-03-06",
+        "description" : "axios, 5 часовой вебинар (корзина интернет-магазина)",
+        "link" : "https://www.youtube.com/watch?v=1QG_FSvDgUo",
+        "subject" : "Доп занятие",
+        "watched" : false
+      },
+      "-Mbms7-hhIPQy9PQbrEB" : {
+        "author" : "Андрей Кириленко",
+        "date" : "2021-02-20",
+        "description" : "Замыкания, задача prev.add(1).add(2).result(); // 3",
+        "link" : "https://youtu.be/Sai4a9XuEuY",
+        "subject" : "Доп занятие",
+        "watched" : false
+      },
+      "-MbmsKaX3eXfhAH9R8Kp" : {
+        "author" : "Андрей Кириленко",
+        "date" : "2021-02-06",
+        "description" : "пагинация",
+        "link" : "https://youtu.be/nE93l1eE3RI",
+        "subject" : "Доп занятие",
+        "watched" : false
+      },
+      "-Mbms__vkhKrmnq1v8h0" : {
+        "author" : "Саша Веник",
+        "date" : "2021-05-19",
+        "description" : "Асинхронный Redux",
+        "link" : "https://youtu.be/G5hf0_H2wl8",
+        "subject" : "Занятие 11",
+        "watched" : false
+      },
+      "-MbmsrDq5V-I3uGv3C4X" : {
+        "author" : "Гери",
+        "date" : "2021-04-22",
+        "description" : "Библиотека Redux Toolkit (ч.1)",
+        "link" : "https://www.youtube.com/watch?v=ihqJfuuFGu0&feature=youtu.be",
+        "subject" : "Занятие 10",
+        "watched" : false
+      },
+      "-Mbmt2SVXrAbR9HvQNJW" : {
+        "author" : "Гери",
+        "date" : "2021-04-22",
+        "description" : "Библиотека Redux Toolkit (ч.2)",
+        "link" : "https://www.youtube.com/watch?v=xhqqYru2srM",
+        "subject" : "Занятие 10",
+        "watched" : false
+      },
+      "-MbmtA9IzkPW4lVP9hL_" : {
+        "author" : "Гери",
+        "date" : "2021-04-20",
+        "description" : "Основы Redux",
+        "link" : "https://www.youtube.com/watch?v=BPnNqNqdUlQ&feature=youtu.be",
+        "subject" : "Занятие 09",
+        "watched" : false
+      },
+      "-MbmtMY_D_Ytaiqfa3zK" : {
+        "author" : "Гери",
+        "date" : "2021-04-15",
+        "description" : "Разделение кода",
+        "link" : "https://www.youtube.com/watch?v=ZvNPzcgjcWI",
+        "subject" : "Занятие 08",
+        "watched" : false
+      },
+      "-MbmtgOB0DpDWD0CQQpr" : {
+        "author" : "Гери",
+        "date" : "2021-04-13",
+        "description" : "Router. Навигация в приложении",
+        "link" : "https://www.youtube.com/watch?v=32Rm9lECKyA",
+        "subject" : "Занятие 07",
+        "watched" : false
+      },
+      "-Mbmtnqn-OfxXJzlGVil" : {
+        "author" : "Гери",
+        "date" : "2021-04-08",
+        "description" : "REST API. HTTP-запросы",
+        "link" : "https://www.youtube.com/watch?v=aLxLW6d4Pbk",
+        "subject" : "Занятие 06",
+        "watched" : false
+      },
+      "-Mbmty2jdGod28npxpYx" : {
+        "author" : "Гери",
+        "date" : "2021-04-06",
+        "description" : "REST API. Жизненный цикл",
+        "link" : "https://www.youtube.com/watch?v=nGrh6GpVk_0",
+        "subject" : "Занятие 05",
+        "watched" : false
+      },
+      "-Mbmu53994KmQjAnRoG7" : {
+        "author" : "Гери",
+        "date" : "2021-04-01",
+        "description" : "Формы",
+        "link" : "https://www.youtube.com/watch?v=9yhpT5LZ_PY",
+        "subject" : "Занятие 04",
+        "watched" : false
+      },
+      "-MbmuPZ3lByqku4btGZ7" : {
+        "author" : "Гери",
+        "date" : "2021-03-25",
+        "description" : "CSS. Стилизация",
+        "link" : "https://www.youtube.com/watch?v=l9LLkeddX1E&feature=youtu.be",
+        "subject" : "Занятие 02",
+        "watched" : false
+      },
+      "-MbmuY_RzmeCfyJCs3jO" : {
+        "author" : "Гери",
+        "date" : "2021-03-23",
+        "description" : "Знакомство с React. JSX. Props. Коллекции.",
+        "link" : "https://www.youtube.com/watch?v=tghMOXFjVQ0",
+        "subject" : "Занятие 01",
+        "watched" : false
+      },
+      "-Mbmuklu3bAMFmryKmnO" : {
+        "author" : "Гери",
+        "date" : "2021-04-26",
+        "description" : "Асинхронный Redux",
+        "link" : "https://www.youtube.com/watch?v=NilKla3Ripo",
+        "subject" : "Занятие 11",
+        "watched" : false
+      },
+      "-MbmuvyyTNgfX65b-X5c" : {
+        "author" : "Саша Веник",
+        "date" : "2021-05-26",
+        "description" : "Q&A ч.1",
+        "link" : "https://youtu.be/M9omcDOJ1vU",
+        "subject" : "Доп занятие",
+        "watched" : false
+      },
+      "-Mbmv5Iaap4HfSSa1qka" : {
+        "author" : "Саша Веник",
+        "date" : "2021-05-21",
+        "description" : "Селекторы и библиотека Reselect",
+        "link" : "https://youtu.be/Mt0YP4OMT1I",
+        "subject" : "Занятие 12",
+        "watched" : false
+      },
+      "-MbmvYliEEVFR1GWO72u" : {
+        "author" : "Гери",
+        "date" : "2021-03-30",
+        "description" : "События. Состояние",
+        "link" : "https://www.youtube.com/watch?v=Y7fjjcImGIg",
+        "subject" : "Занятие 03",
+        "watched" : false
+      },
+      "-MbqLrFVOlZ6dCieh4Aq" : {
+        "author" : "Александр Давыдов",
+        "date" : "2021-05-29",
+        "description" : "Приложение AppCo (React, Material-ui)",
+        "link" : "https://youtu.be/qfrGqgC1jyI",
+        "subject" : "Доп занятие",
+        "watched" : false
+      },
+      "-MbqM61vwzG6mOEvzHh9" : {
+        "author" : "Андрей Кириленко",
+        "date" : "2021-05-15",
+        "description" : "Приложение Финансы (React, Redux)",
+        "link" : "https://youtu.be/qhLTFdj3lXM",
+        "subject" : "Доп занятие",
+        "watched" : false
+      },
+      "-MbrIzyf3ekxtAeca6nv" : {
+        "author" : "Андрей Кириленко",
+        "date" : "2021-05-04",
+        "description" : "Приложение Финансы (React)",
+        "link" : "https://youtu.be/3Uh34fuWoNA",
+        "subject" : "Доп занятие",
+        "watched" : false
+      },
+      "-MbrJUkYLDLnu2zg9y9y" : {
+        "author" : "Андрей Кириленко",
+        "date" : "2021-04-17",
+        "description" : "Приложение корзина интернет-магазина",
+        "link" : "https://youtu.be/ezAN9ztOYy0",
+        "subject" : "Доп занятие",
+        "watched" : false
+      },
+      "-MbrKH9huGcGzw3Yu6vp" : {
+        "author" : "Саша Веник",
+        "date" : "2021-06-09",
+        "description" : "React Hooks ",
+        "link" : "https://youtu.be/p-hjAaf8ZFA",
+        "subject" : "Занятие 15",
+        "watched" : false
+      },
+      "-MbrKS8CI6JsTyAXtajG" : {
+        "author" : "Саша Веник",
+        "date" : "2021-06-04",
+        "description" : "Регистрация и логин пользователя",
+        "link" : "https://youtu.be/ANy04YmkPVg",
+        "subject" : "Занятие 14",
+        "watched" : false
+      },
+      "-MbrKaK-opamopCBDmje" : {
+        "author" : "Саша Веник",
+        "date" : "2021-06-02",
+        "description" : "Регистрация и логин пользователя",
+        "link" : "https://youtu.be/LxhEsC5nFjA",
+        "subject" : "Занятие 13",
+        "watched" : false
+      },
+      "-MbrL0C278VV-YipTwHO" : {
+        "author" : "Саша Веник",
+        "date" : "2021-05-28",
+        "description" : "Q&A ч.2",
+        "link" : "https://youtu.be/GzTJlkvICD0",
+        "subject" : "Доп занятие",
+        "watched" : false
+      },
+      "-MbrLiDVdHu_-H3Z5eoK" : {
+        "author" : "Анатолий Парубец",
+        "date" : "2021-06-09",
+        "description" : "Видео - скринкасты «Вопрос-Ответ» HTML+CSS",
+        "link" : "https://www.youtube.com/playlist?list=PLViULGko0Fdjdym7ozFKRnzgoL6oobbuK",
+        "subject" : "Собеседование",
+        "watched" : false
+      },
+      "-MbrLnIpz-pVl6Gjnyeo" : {
+        "author" : "Анатолий Парубец",
+        "date" : "2021-06-09",
+        "description" : "Видео - скринкасты «Вопрос-Ответ»  JavaScript",
+        "link" : "https://www.youtube.com/watch?v=RdgmpfN0JRU&list=PLViULGko0FdjRCESmVftkQWCqEdnoE5oO",
+        "subject" : "Собеседование",
+        "watched" : false
+      },
+      "-MbrMRgp-W2nNrwif0mV" : {
+        "author" : "Саша Веник",
+        "date" : "2021-05-14",
+        "description" : "Библиотека Redux Toolkit ",
+        "link" : "https://youtu.be/s4MsZoH789c",
+        "subject" : "Занятие 10",
+        "watched" : false
+      },
+      "-MbrMgXIsuD0QC3MYEF1" : {
+        "author" : "Саша Веник",
+        "date" : "2021-05-12",
+        "description" : " Основы Redux",
+        "link" : "https://youtu.be/7mjQ_FdRg4k",
+        "subject" : "Занятие 09",
+        "watched" : false
+      },
+      "-MbrMz0Z0FuxEoMoS9jL" : {
+        "author" : "Саша Веник",
+        "date" : "2021-05-07",
+        "description" : "Code splitting",
+        "link" : "https://youtu.be/FXnHdRj_FUg",
+        "subject" : "Занятие 08",
+        "watched" : false
+      },
+      "-MbrNKJ-znqLUGR2TKqU" : {
+        "author" : "Саша Веник",
+        "date" : "2021-05-05",
+        "description" : "React Router",
+        "link" : "https://youtu.be/ALyD64uGyYQ",
+        "subject" : "Занятие 07",
+        "watched" : false
+      },
+      "-MbrNV4HEXq1WwCSSlHD" : {
+        "author" : "Саша Веник",
+        "date" : "2021-04-30",
+        "description" : "Работа с REST API ",
+        "link" : "https://youtu.be/CJ8_4-JDVtw",
+        "subject" : "Занятие 06",
+        "watched" : false
+      },
+      "-MbrNd4HF8ULj5bGjU78" : {
+        "author" : "Саша Веник",
+        "date" : "2021-04-28",
+        "description" : "Жизненный цикл",
+        "link" : "https://youtu.be/vDxU83b0gZU",
+        "subject" : "Занятие 05",
+        "watched" : false
+      },
+      "-MbrNq_RCWprlAdlxFf0" : {
+        "author" : "Саша Веник",
+        "date" : "2021-04-23",
+        "description" : "Формы",
+        "link" : "https://youtu.be/dppCYRcVNX8",
+        "subject" : "Занятие 04",
+        "watched" : false
+      },
+      "-MbrNxgOhVlrojJwqPKW" : {
+        "author" : "Саша Веник",
+        "date" : "2021-04-21",
+        "description" : "События и состояние",
+        "link" : "https://youtu.be/bX5z94nNpAA",
+        "subject" : "Занятие 03",
+        "watched" : false
+      },
+      "-MbrO66z4Dt4L7FRaLuD" : {
+        "author" : "Саша Веник",
+        "date" : "2021-04-16",
+        "description" : "Стилизация компонентов",
+        "link" : "https://youtu.be/MS-HxJH6FQE",
+        "subject" : "Занятие 02",
+        "watched" : false
+      },
+      "-MbrOFew0gjxEFYwqwlt" : {
+        "author" : "Саша Веник",
+        "date" : "2021-04-14",
+        "description" : "Компоненты и пропсы",
+        "link" : "https://youtu.be/WST1-3Kgdi4",
+        "subject" : "Занятие 01",
+        "watched" : false
+      }
+    }
+  },
+  "users" : {
+    "bNSpZc2VtpUwacePAeaqD3a6PXo2" : {
+      "backdrop_path" : "/inJjDhCjfhh3RtrJWBmmDqeuSYC.jpg"
+    }
+  }
+}

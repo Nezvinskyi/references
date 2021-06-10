@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { videosActions } from '../../redux/videos';
-// import { authSelectors } from '../../redux/auth';
 import { videosSelectors } from '../../redux/videos';
+import { authSelectors } from '../../redux/auth';
 
 const EditForm = ({
   id,
@@ -11,6 +11,7 @@ const EditForm = ({
   handleEditVideo,
   subjects,
   authors,
+  isAuthenticated,
 }) => {
   const [formData, setFormData] = useState({
     date: video.date,
@@ -115,7 +116,11 @@ const EditForm = ({
         </div>
 
         <div className="d-grid gap-2">
-          <button type="submit" className="btn btn-secondary">
+          <button
+            type="submit"
+            className="btn btn-secondary"
+            disabled={isAuthenticated ? 'false' : 'true'}
+          >
             Confirm change
           </button>
           <button type="reset" onClick={onClose} className="btn btn-secondary">
@@ -130,6 +135,7 @@ const EditForm = ({
 const mapStateToProps = state => ({
   subjects: videosSelectors.getSubjects(state),
   authors: videosSelectors.getAuthors(state),
+  isAuthenticated: authSelectors.getIsAuthenticated(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -16,7 +16,9 @@ const useStyles = createUseStyles({
     alignItems: 'center',
   },
   title: {
+    marginTop: 50,
     textAlign: 'center',
+    color: '#4b93da',
   },
   wrapper: {
     display: 'flex',

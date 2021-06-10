@@ -10,11 +10,6 @@ import ModalWindow from '../ModalWindow/ModalWindow';
 import EditForm from '../EditForm/EditForm';
 
 const sortArrayByProperty = (array, property, sortDirection) => {
-  console.log(
-    `Sorting by ${property}, sort direction ${
-      sortDirection > 0 ? 'asc' : 'desc'
-    }`,
-  );
   return array.sort((a, b) => {
     if (a[property] > b[property]) return sortDirection;
     if (a[property] < b[property]) return -sortDirection;
@@ -45,8 +40,6 @@ const Table = ({
     e.target.parentElement.childNodes.forEach(item =>
       item.classList.remove('sort', 'ascending', 'descending'),
     );
-    // headRef.current.classList.remove('ascending', 'descending');
-    // e.target.classList.remove('ascending', 'descending');
     setSortBy(e.target.textContent.toLowerCase());
     e.target.classList.add('sort');
     const classNameSort = sortDirection > 0 ? 'ascending' : 'descending';
@@ -105,7 +98,6 @@ const Table = ({
                     <EditBtn
                       onEdit={() => {
                         toggleModal();
-                        console.log('from table >>>>> ', id);
                         setCurrentVideo({
                           id,
                           date,

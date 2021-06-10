@@ -2,10 +2,6 @@ import axios from 'axios';
 
 import { BASE_URL } from './api-settings';
 
-// const TOKEN = '';
-
-// axios.defaults.headers.common.Authorization = `Bearer ${TOKEN}`;
-
 export const fetchVideos = async () => {
   return await axios.get(`${BASE_URL}/data.json`);
 };
