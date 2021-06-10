@@ -34,7 +34,7 @@ const Table = ({
   }, []);
 
   const headRef = useRef();
-
+  console.log(headRef.node);
   const handleClick = e => {
     // headRef.current.classList.remove('ascending', 'descending');
     // e.target.classList.remove('ascending', 'descending');
