@@ -1,17 +1,19 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { createUseStyles } from 'react-jss';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import LoginForm from '../components/LoginForm/LoginForm';
 import ModalWindow from '../components/ModalWindow/ModalWindow';
 import './MainPage.scss';
+import { ReactComponent as StarIcon } from './sea-star.svg';
+import { ReactComponent as OctopusIcon } from './octopus.svg';
 
 const useStyles = createUseStyles({
   card: {
     width: 300,
     height: 300,
-    backgroundColor: 'teal',
     cursor: 'pointer',
-    outline: '1px solid',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
     textAlign: 'center',
@@ -19,14 +21,15 @@ const useStyles = createUseStyles({
   wrapper: {
     display: 'flex',
     justifyContent: 'space-around',
-    outline: '1px solid',
     width: 600,
-    margin: '0 auto',
+    margin: '100px auto',
   },
 });
 
 const MainPage = () => {
+  const history = useHistory();
   const classes = useStyles();
+  const svgRef = useRef();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,15 +37,34 @@ const MainPage = () => {
     setIsOpen(prev => !prev);
   };
 
+  const handleMouseEnter = e => {
+    e.target.firstElementChild.setAttribute('fill', '#fff');
+  };
+  const handleMouseLeave = e => {
+    e.target.firstElementChild.setAttribute('fill', '#4b93da');
+  };
+
   return (
     <div className="container">
       <h1 className={`container ${classes.title}`}>React Videos</h1>
       <div className={classes.wrapper}>
-        <Link className={`card ${classes.card}`} to="/videos">
-          <h2 className="card-title">continue as guest</h2>
-        </Link>
-        <div className={`card ${classes.card}`} onClick={toggleModal}>
-          <p>continue as admin</p>
+        <div
+          className="card"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={() => history.push('/videos')}
+        >
+          <StarIcon ref={svgRef} fill="#4b93da" className="icon" />
+          <p className="card-title title">I am a guest</p>
+        </div>
+        <div
+          className="card"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={toggleModal}
+        >
+          <OctopusIcon ref={svgRef} fill="#4b93da" className="icon" />
+          <p className="card-title title">I have an account</p>
         </div>
         <ModalWindow title="login" isOpen={isOpen} onClose={toggleModal}>
           <LoginForm onClose={toggleModal} />

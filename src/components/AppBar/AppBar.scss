@@ -1,6 +1,9 @@
 .app-bar {
-  position: fixed;
+  // position: fixed;
   height: 50px;
   width: 100%;
-  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid red;
+  // background-color: blue;
 }

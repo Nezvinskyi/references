@@ -1,21 +1,16 @@
 .videos-list-container {
-  // position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  margin-left: 20%;
   width: 80%;
 }
 
 thead {
   cursor: pointer;
 }
-// table {
-//   border-collapse: collapse;
-// }
 
-.sort::after {
-  margin-left: 5px;
+.sort {
+  // font-size: 30px;
+  &::after {
+    margin-left: 5px;
+  }
 }
 
 .ascending::after {

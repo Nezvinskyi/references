@@ -15,15 +15,15 @@ const VideosList = ({ isAuthenticated }) => {
   const toggleModal = () => {
     setIsOpen(prev => !prev);
   };
+  // change true to isAuthenticated
 
   return (
     <>
       <div className="videos-list-container container">
-        <h2>Video List</h2>
         <Table />
       </div>
       <ModalWindow isOpen={isOpen} title="Add new video" onClose={toggleModal}>
-        {isAuthenticated ? (
+        {true ? (
           <AddForm onClose={toggleModal} />
         ) : (
           <LoginForm onClose={toggleModal} />

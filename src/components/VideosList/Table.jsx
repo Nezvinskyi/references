@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import { videosSelectors } from '../../redux/videos/';
 import { authSelectors } from '../../redux/auth';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { videosActions } from '../../redux/videos';
 import DeleteBtn from '../DeleteBtn/DeleteBtn';
 
@@ -32,16 +32,16 @@ const Table = ({
   useEffect(() => {
     getVideos();
   }, []);
-
-  const headRef = useRef();
-  console.log(headRef.node);
   const handleClick = e => {
+    e.target.parentElement.childNodes.forEach(item =>
+      item.classList.remove('sort', 'ascending', 'descending'),
+    );
     // headRef.current.classList.remove('ascending', 'descending');
     // e.target.classList.remove('ascending', 'descending');
     setSortBy(e.target.textContent.toLowerCase());
-    // e.target.classList.add('sort');
-    // const classNameSort = sortDirection > 0 ? 'ascending' : 'descending';
-    // e.target.classList.add(classNameSort);
+    e.target.classList.add('sort');
+    const classNameSort = sortDirection > 0 ? 'ascending' : 'descending';
+    e.target.classList.add(classNameSort);
 
     setSortDirection(prev => -prev);
     sortArrayByProperty(videos, sortBy, sortDirection);
@@ -51,24 +51,12 @@ const Table = ({
     <table className="table table-striped table-hover">
       <thead>
         <tr>
-          <th onClick={handleClick} ref={headRef}>
-            Date
-          </th>
-          <th onClick={handleClick} ref={headRef}>
-            Subject
-          </th>
-          <th onClick={handleClick} ref={headRef}>
-            Author
-          </th>
-          <th onClick={handleClick} ref={headRef}>
-            Description
-          </th>
-          <th onClick={handleClick} ref={headRef}>
-            Link
-          </th>
-          <th onClick={handleClick} ref={headRef}>
-            Watched
-          </th>
+          <th onClick={handleClick}>Date</th>
+          <th onClick={handleClick}>Subject</th>
+          <th onClick={handleClick}>Author</th>
+          <th onClick={handleClick}>Description</th>
+          <th onClick={handleClick}>Link</th>
+          <th onClick={handleClick}>Watched</th>
           <th>Admin</th>
         </tr>
       </thead>

@@ -11,3 +11,8 @@ export const login = credentials => async dispatch => {
     dispatch(actions.loginError(error.message));
   }
 };
+
+export const logout = () => dispatch => {
+  dispatch(actions.logoutRequest());
+  dispatch(actions.logoutSuccess());
+};

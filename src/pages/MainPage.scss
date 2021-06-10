@@ -1,0 +1,28 @@
+.card {
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  // border: none;
+
+  &:hover {
+    background-color: #4b93da;
+
+    .title {
+      color: #fff;
+    }
+  }
+}
+
+.title {
+  font-size: 20px;
+  text-decoration: none;
+  color: #4b93da;
+}
+
+.icon {
+  width: 150px;
+  height: 150px;
+}
