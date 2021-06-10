@@ -4,10 +4,6 @@ import { videosSelectors } from '../../redux/videos';
 
 import './Navigation.scss';
 
-// import videos from '../../data/db.json';
-// const subjects = videos.subjects;
-// const subjects = videos.authors;
-
 const Navigation = ({ subjects, authors, toggleSubject, toggleAuthor }) => {
   const toggleCollapse = e => {
     e.target.classList.toggle('collapsed');

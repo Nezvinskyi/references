@@ -13,3 +13,14 @@ thead {
 // table {
 //   border-collapse: collapse;
 // }
+
+.sort::after {
+  margin-left: 5px;
+}
+
+.ascending::after {
+  content: '↑';
+}
+.descending::after {
+  content: '↓';
+}
