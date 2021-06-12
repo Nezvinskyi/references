@@ -8,6 +8,7 @@ import DeleteBtn from '../DeleteBtn/DeleteBtn';
 import EditBtn from '../EditBtn/EditBtn';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import EditForm from '../EditForm/EditForm';
+import LinkBtn from '../LinkBtn/LinkBtn';
 
 const sortArrayByProperty = (array, property, sortDirection) => {
   return array.sort((a, b) => {
@@ -76,7 +77,9 @@ const Table = ({
                   <td>{author}</td>
                   <td>{description}</td>
                   <td>
-                    <a href={link}>Link</a>
+                    <a href={link}>
+                      <LinkBtn />
+                    </a>
                   </td>
                   <td style={{ textAlign: 'center' }}>
                     <input
