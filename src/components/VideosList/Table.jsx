@@ -77,7 +77,7 @@ const Table = ({
                   <td>{author}</td>
                   <td>{description}</td>
                   <td>
-                    <a href={link}>
+                    <a href={link} target="_blank" rel="noreferrer">
                       <LinkBtn />
                     </a>
                   </td>
