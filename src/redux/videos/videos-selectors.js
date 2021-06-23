@@ -1,6 +1,6 @@
 const getAllVideos = state => state.videos.videos;
 
-const getFilter = state => state.filter;
+export const getFilter = state => state.filter;
 
 export const getFilteredVideos = state => {
   const videos = getAllVideos(state);

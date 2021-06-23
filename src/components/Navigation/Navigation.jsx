@@ -3,8 +3,40 @@ import * as actions from '../../redux/videos/filter-reducer';
 import { videosSelectors } from '../../redux/videos';
 
 import './Navigation.scss';
+import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useRef } from 'react';
 
-const Navigation = ({ subjects, authors, toggleSubject, toggleAuthor }) => {
+const Navigation = ({
+  subjects,
+  authors,
+  toggleSubject,
+  toggleAuthor,
+  filter,
+}) => {
+  const history = useHistory();
+  const subjectsList = useRef();
+
+  useEffect(() => {
+    const filterFromUrl = history.location.search
+      .substring(1)
+      .split('+')
+      .map(item => item.replace('%20', ' '));
+
+    filterFromUrl.forEach(item => {
+      if (item) {
+        toggleSubject(item);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    history.push({
+      pathname: '/videos',
+      search: filter.subjects.join('+'),
+    });
+  }, [history, filter.subjects]);
+
   const toggleCollapse = e => {
     e.target.classList.toggle('collapsed');
     e.target.setAttribute(
@@ -14,10 +46,12 @@ const Navigation = ({ subjects, authors, toggleSubject, toggleAuthor }) => {
 
     e.target.parentNode.nextSibling.classList.toggle('show');
   };
+
   const handleSubjectClick = e => {
     toggleSubject(e.target.textContent);
     e.target.classList.toggle('active');
   };
+
   const handleAuthorClick = e => {
     toggleAuthor(e.target.textContent);
     e.target.classList.toggle('active');
@@ -47,7 +81,7 @@ const Navigation = ({ subjects, authors, toggleSubject, toggleAuthor }) => {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
-              <ul>
+              <ul ref={subjectsList}>
                 {subjects.map(subject => (
                   <li key={subject} onClick={handleSubjectClick}>
                     {subject}
@@ -96,6 +130,7 @@ const Navigation = ({ subjects, authors, toggleSubject, toggleAuthor }) => {
 const mapStateToProps = state => ({
   subjects: videosSelectors.getSubjects(state),
   authors: videosSelectors.getAuthors(state),
+  filter: videosSelectors.getFilter(state),
 });
 
 export default connect(mapStateToProps, actions)(Navigation);
